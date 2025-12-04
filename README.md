@@ -73,7 +73,7 @@ A full stack banking application using Node.js, React and MongoDB.
 1. **Clone and install**
    ```bash
    git clone <repository-url>
-   cd FullStackBankingApplication
+   cd bank-app
    npm run install:all
    ```
 
@@ -85,6 +85,7 @@ A full stack banking application using Node.js, React and MongoDB.
    PORT=3001
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/banking
    JWT_SECRET=your-super-secret-jwt-key
+   CORS_ORIGIN=http://localhost:3000
    ```
    
    Frontend (`frontend/.env`):
@@ -94,7 +95,15 @@ A full stack banking application using Node.js, React and MongoDB.
 
 3. **Start the application**
    ```bash
+   # Start both frontend and backend
    npm run dev
+   
+   # Or start them separately in different terminals:
+   # Terminal 1 (Backend)
+   npm run backend:dev
+   
+   # Terminal 2 (Frontend)
+   npm run frontend:dev
    ```
    
    Access at: `http://localhost:3000`
@@ -108,6 +117,40 @@ npm run frontend:dev          # Start frontend only
 npm run build                 # Build for production
 npm run test                  # Run tests
 ```
+
+## 🚀 Deployment
+
+### Deploying to Vercel
+
+1. **Install Vercel CLI** (optional)
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Configure Environment Variables**
+   
+   In your Vercel dashboard, add the following environment variables:
+   ```
+   VITE_API_URL=https://your-backend-api-url.com/api
+   ```
+
+3. **Deploy**
+   ```bash
+   # From the root directory
+   vercel
+   
+   # Or for production
+   vercel --prod
+   ```
+
+4. **Update Backend CORS**
+   
+   Add your Vercel URL to the CORS_ORIGIN in your backend .env:
+   ```
+   CORS_ORIGIN=https://your-app.vercel.app
+   ```
+
+**Note:** You'll need to deploy your backend separately (e.g., Railway, Render, Azure) and update the API URL in the frontend environment variables.
 
 ## 🛠️ Technology Stack
 

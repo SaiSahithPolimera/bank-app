@@ -40,7 +40,7 @@ const DepositPage: React.FC = () => {
     try {
       await transactionService.deposit(data);
       toast.success('Deposit completed successfully!');
-      navigate('/dashboard');
+      // navigate('/dashboard');
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Deposit failed');
     }

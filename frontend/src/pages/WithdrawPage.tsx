@@ -40,7 +40,6 @@ const WithdrawPage: React.FC = () => {
     try {
       await transactionService.withdraw(data);
       toast.success('Withdrawal completed successfully!');
-      navigate('/dashboard');
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Withdrawal failed');
     }
@@ -148,7 +147,6 @@ const WithdrawPage: React.FC = () => {
             <div className="flex space-x-4">
               <button
                 type="button"
-                onClick={() => navigate('/dashboard')}
                 className="flex-1 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 Cancel

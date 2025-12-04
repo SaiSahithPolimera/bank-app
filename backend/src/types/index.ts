@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface User {
   _id: string;
   email: string;
@@ -41,8 +43,6 @@ export interface Transaction {
   createdAt: Date;
   updatedAt: Date;
 }
-
-import { Request } from 'express';
 
 export interface AuthRequest extends Request {
   user?: User;

@@ -85,8 +85,8 @@ const TransferPage: React.FC = () => {
         description: data.description
       });
       toast.success('Transfer completed successfully!');
-      reset();
-      navigate('/dashboard');
+      // reset();
+      // navigate('/dashboard');
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Transfer failed');
     }

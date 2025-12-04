@@ -22,7 +22,12 @@ const LoginPage: React.FC = () => {
       toast.success('Login successful!');
       navigate('/dashboard');
     } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Login failed');
+      const errorMessage = error.response?.data?.error || 
+                          error.response?.data?.message || 
+                          error.message || 
+                          'Login failed. Please try again.';
+      toast.error(errorMessage);
+      console.error('Login error:', error);
     }
   };
 

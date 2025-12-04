@@ -33,10 +33,15 @@ const RegisterPage: React.FC = () => {
       const { confirmPassword, ...registerData } = data;
       const response = await authService.register(registerData);
       login(response.token, response.user);
-      toast.success('Registration successful!');
+      toast.success('Registration successful! Welcome to SecureBank!');
       navigate('/dashboard');
     } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Registration failed');
+      const errorMessage = error.response?.data?.error || 
+                          error.response?.data?.message || 
+                          error.message || 
+                          'Registration failed. Please try again.';
+      toast.error(errorMessage);
+      console.error('Registration error:', error);
     }
   };
 
